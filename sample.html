@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Trilhos Pedestres</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+   
+    <div id="tools" align="center">
+      <br>
+      <h3>Inserir/Actualizar Trilho</h3>
+      <form id="tri" action="insert.php" method="post">
+        Nome: <input type="text" name="nome" value="" />
+        <br>
+        Path: <input type="text" name="coordinates" value="" />
+        <br>
+        Forma: <input type="text" name="forma" value="" />
+        <br>
+        Dificuldade: <input type="text" name="dificuldade" value="" />
+        <br>
+        Extensão:<input type="text" name="extensao" value="" />
+        <br>
+        Duração: <input type="text" name="duracao" value="" />
+        <br>
+        Descrição: <input type="text" name="descricao" value="" />
+        <input type="submit" value="Inserir"/>
+      </form>
+      <p></p>
+      <h3>Remover Trilho</h3>
+      <form id="del" action="delete.php" method="post">
+      <input type="hidden" name="nome" />
+      <input type="submit" value="Apagar Trilho" />
+      </form>
+      <p></p>
+      <h3>Categorias</h3>
+      <form id="legenda">
+        <img src="http://labs.google.com/ridefinder/images/mm_20_green.png" /> Fácil <!-- Facil -->
+        <input type="checkbox" name="dificuldade" value="Facil" checked="true" onchange="checkLegend()"/>
+        <br>
+        <img src="http://labs.google.com/ridefinder/images/mm_20_yellow.png" /> Médio <!-- Medio -->
+        <input type="checkbox" name="dificuldade" value="Medio" checked="true" onchange="checkLegend()"/>
+        <br>
+        <img src="http://labs.google.com/ridefinder/images/mm_20_red.png" /> Difícil <!-- Medio -->
+        <input type="checkbox" name="dificuldade" value="Dificil" checked="true" onchange="checkLegend()"/>
+        <br>
+        <!--
+        <img src="http://labs.google.com/ridefinder/images/mm_20_blue.png" /> Circular 
+        <input type="checkbox" name="forma" value="Circular" checked="true" onchange="checkLegend()"/>
+        <br>
+        <img src="http://labs.google.com/ridefinder/images/mm_20_blue.png" /> Linear 
+        <input type="checkbox" name="forma" value="Linear" checked="true" onchange="checkLegend()"/>
+        <br>
+      -->
+      </form>
+      <h3>Zoom Update</h3>
+      <form id="zoom">
+        <input type="button" value="Full Extent" onclick="updateZoom()" />
+        <br>
+        </form>
+      <h3>Elevação</h3>
+      <div id="elevation-chart"></div>
+      <h3>Automatic Import</h3>
+      <input type="file" id="file-input" onchange="readSingleFile(event)" value="" title=" " style="color:transparent; width:120px;"/>
+      <form id="fileList"></form>
+      <input type="button" value="Remover layers" onclick="removeLayers()" />
+       
+    
+    </div>
+
+    
+    <div id="map-canvas">
+    </div>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0R5idSFK0D1oaehSeST0U5ZciZGJ-sqo&callback=initMap&libraries=&v=weekly"
+      async defer
+    ></script>
+
+    
+
+  </body>
+</html>

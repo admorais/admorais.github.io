@@ -1,0 +1,36 @@
+html, body {height: 100%; margin: 0px; padding: 0px}
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+  #map-canvas {
+    height: 100%;
+    margin-left: 230px;
+    padding-left: 20px;
+  }
+
+  /* Optional: Makes the sample page fill the window. */
+  #tools{
+    height: 100%;
+    width: 230px;
+    position: fixed;
+    z-index: 1;
+    top: 0 ;
+    left: 0;
+    /*background-color:blue;*/
+    overflow-x: hidden;
+    overflow-y: scroll;
+    right: -17px;
+  }
+
+  /*
+  input[type='file'] {
+    color: transparent;
+    left: -50px;
+  }*/
+
+
